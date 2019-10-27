@@ -3,7 +3,7 @@
     <div class="modal-wrapper">
       <div class="modal-container">
         <div>
-          <img src="/assets/img/tag_faces-24px.svg" alt="">
+          <img src="~/assets/img/tag_faces-24px.svg" alt="The big funny Smile">
           <h3>Спасибо за отзыв!</h3>
           <button @click="$emit('closeThanks')">Закрыть</button>
         </div>

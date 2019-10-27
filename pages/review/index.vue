@@ -1,5 +1,5 @@
 <template>
-  <div class="review__container">
+  <div class="my_container review__container">
     <h2 class="review__header">Отзывы магазина</h2>
     <button
         class="new__review__button"

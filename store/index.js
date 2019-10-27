@@ -27,6 +27,9 @@ export const state = () => ({
   ]
 });
 
+/**
+ * GETTERS
+ */
 
 export const getters = {
   getReviews(state) {
@@ -62,23 +65,6 @@ export const getters = {
     }, 0);
   },
 
-  bookInCartAmount(state) {
-    return function(id) {
-      let amount = 0;
-
-      if (!state.booksInCart.length)
-        return 0;
-
-      else {
-        state.booksInCart.forEach(el => {
-          if (el.id === id)
-            amount = el.amount;
-        });
-      }
-      return amount;
-    };
-  },
-
   productInCartAmount(state){
     return function(_id) {
       let amount = 0;
@@ -93,7 +79,6 @@ export const getters = {
         });
       }
       return amount;
-
     };
   },
 
@@ -111,14 +96,20 @@ export const getters = {
   }
 };
 
+/**
+ * MUTATIONS
+ */
+
 export const mutations = {
   addReview(state, payload) {
     state.reviews = [payload, ...state.reviews];
   },
 
+  /*todo Сделать интерфейс на английском*/
   changeLang(state, payload) {
     state.language = payload;
   },
+
   setProducts(state, payload) {
     if (payload.type === 'booksDB') {
       state.books = payload.data;
@@ -129,8 +120,8 @@ export const mutations = {
     if (payload.type === 'trinkets') {
       state.trinkets = payload.data;
     }
-
   },
+
   setCartProducts(state, payload) {
     state.productsInCart = payload;
   },
@@ -142,19 +133,8 @@ export const mutations = {
 
   updateLocalStorage(state, payload) {
     if (process.client) {
-      localStorage.geek_shop = JSON.stringify(state.booksInCart);
+      localStorage.geek_shop = JSON.stringify(state.productsInCart);
     }
-  },
-
-  addBookToCart(state, payload) {
-
-    const bookInCart = state.booksInCart.find(book => book.id === payload.id);
-    if (!bookInCart) {
-      const cartBook = Object.assign({}, payload);
-      cartBook.amount = 1;
-      state.booksInCart = [cartBook, ...state.booksInCart];
-    } else
-      bookInCart.amount += 1;
   },
 
   addProductToCart(state, payload) {
@@ -169,7 +149,6 @@ export const mutations = {
     }
   },
 
-
   deleteProductFromCart(state, _id) {
     state.productsInCart = state.productsInCart.filter(el => el._id !== _id);
   },
@@ -177,6 +156,10 @@ export const mutations = {
     state.productsInCart = [];
   }
 };
+
+/**
+ * ACTIONS
+ */
 
 export const actions = {
 

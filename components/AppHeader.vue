@@ -1,59 +1,62 @@
 <template>
-  <div class="nav-toolbox-wrapper fixed-top">
+  <div class="fixed-top">
+    <b-navbar toggleable="lg" type="dark" variant="dark">
+      <b-navbar-brand>
+        <nuxt-link to="/"
+                   class="logo"
+                   aria-disabled="true"
+                   :class="{'logo-hover': getCurrentRoute !== '/', 'text-white': getCurrentRoute === '/'}"
+        >GeekShop</nuxt-link>
+      </b-navbar-brand>
 
-    <nuxt-link to="/"
-               class="logo"
-               tag="a"
-               aria-disabled="true"
-               :class="{'logo-hover': getCurrentRoute !== '/', 'text-white': getCurrentRoute === '/'}"
-    >
-      <span class="logo__short">GS</span>
-      <span class="logo__long">GeekShop</span>
+      <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
-    </nuxt-link>
+      <b-collapse id="nav-collapse" is-nav>
+        <b-navbar-nav class="ml-auto">
 
-    <nav>
-      <ul class="navigation">
-        <nuxt-link tag="li"
-                   :class="{'border-light': getCurrentRoute === '/books', 'text-white': getCurrentRoute === '/books'}"
-                   to="/books"
-        >
-          Книги
-        </nuxt-link>
-        <nuxt-link tag="li"
-                   :class="{'border-light': getCurrentRoute === '/t_shirts', 'text-white': getCurrentRoute === '/t_shirts'}"
-                   to="/t_shirts"
-        >
-          Футболки
-        </nuxt-link>
+            <nuxt-link class="nav-link"
+                       :class="{'border-light': getCurrentRoute === '/books', 'text-white': getCurrentRoute === '/books'}"
+                       to="/books"
+            >
+              Книги
+            </nuxt-link>
 
-        <nuxt-link tag="li"
-                   :class="{'border-light': getCurrentRoute === '/trinkets', 'text-white': getCurrentRoute === '/trinkets'}"
-                   to="/trinkets"
-        >
-          Всячина
-        </nuxt-link>
 
-        <!--If we have some books in our cart we add a border around the button-->
-        <nuxt-link tag="li"
-                   :class="{'border-light': getCurrentRoute === '/cart', 'text-white': getCurrentRoute === '/cart'}"
-                   to="cart"
-        >
-          Корзина <span class=" badge badge-light">{{ totalAmountProductsInCart }}</span>
-        </nuxt-link>
+            <nuxt-link class="nav-link"
+                       :class="{'border-light': getCurrentRoute === '/t_shirts', 'text-white': getCurrentRoute === '/t_shirts'}"
+                       to="/t_shirts"
+            >
+              Футболки
+            </nuxt-link>
 
-        <nuxt-link tag="li"
-                   :class="{'border-light': getCurrentRoute === '/review', 'text-white': getCurrentRoute === '/review'}"
-                   to="review"
-        >
-          Отзывы
-        </nuxt-link>
 
-        <!--<router-link class="nav-item nav-link text-white font-weight-bold"
-                     to="/login"
-        >{{strings.LOGIN[language]}}</router-link>-->
-      </ul>
-    </nav>
+            <nuxt-link class="nav-link"
+                       :class="{'border-light': getCurrentRoute === '/trinkets', 'text-white': getCurrentRoute === '/trinkets'}"
+                       to="/trinkets"
+            >
+              Всячина
+            </nuxt-link>
+
+
+            <nuxt-link class="nav-link"
+                       :class="{'border-light': getCurrentRoute === '/cart', 'text-white': getCurrentRoute === '/cart'}"
+                       to="cart"
+            >
+              Корзина <span class=" badge badge-light">{{ totalAmountProductsInCart }}</span>
+            </nuxt-link>
+
+
+            <nuxt-link class="nav-link"
+                       :class="{'border-light': getCurrentRoute === '/review', 'text-white': getCurrentRoute === '/review'}"
+                       to="review"
+            >
+              Отзывы
+            </nuxt-link>
+
+        </b-navbar-nav>
+      </b-collapse>
+    </b-navbar>
+
   </div>
 </template>
 
@@ -93,12 +96,8 @@
 
           }
         }
-
       }
-
-
     }
-
   };
 </script>
 
@@ -106,7 +105,55 @@
 
   $link-color: #E0E0E0;
 
-  .nav-toolbox-wrapper {
+  .nav-link {
+    margin-right: 1rem;
+  }
+
+  .navbar {
+    background-color: #333;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+
+    .border-light {
+      display: inline-block;
+      border: 1px solid white;
+      border-radius: 3px;
+      color: #fff !important;
+    }
+
+    a {
+      text-decoration: none;
+      color: $link-color !important;
+    }
+
+    li {
+      display: inline-block;
+      border: 1px solid #333;
+      border-radius: 3px;
+      color: #fff;
+
+
+      &:hover {
+        cursor: pointer;
+        border: 1px solid white;
+        background-color: red;
+      }
+    }
+  }
+
+  .logo {
+    font-weight: normal;
+    display: inline-block;
+    color: $link-color;
+    text-decoration: none;
+    font-size: 1.5rem;
+    margin: 0;
+    padding: 0;
+  }
+
+  /*.nav-toolbox-wrapper {
     background-color: #333;
     color: $link-color;
     width: 100%;
@@ -128,7 +175,7 @@
 
   nav {
 
-    /*Clearfix*/
+    !*Clearfix*!
     &::after {
       content: "";
       clear: both;
@@ -185,15 +232,13 @@
     margin-top: 1rem;
     margin-right: 1rem;
 
-
-    /*same as router-link*/
     li {
       display: inline-block;
       margin-right: 1rem;
       border: 1px solid #333;
       padding: .3rem;
       border-radius: 3px;
-      /*remove padding from the right element*/
+      !*remove padding from the right element*!
       &:last-child {
         margin: 0;
 
@@ -207,5 +252,5 @@
       }
     }
 
-  }
+  }*/
 </style>

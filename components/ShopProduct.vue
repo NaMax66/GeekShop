@@ -4,7 +4,7 @@
       <h5 class="card-title mb-2">{{ product.title }}</h5>
       <div class="row pt-3">
         <div class="p-0 col-7 product_img_container">
-          <img class="w-100 product_img" :src="getImgPath" :alt="product.title"/>
+          <img class="product_img" :src="getImgPath" :alt="product.title"/>
         </div>
         <div class="col-5 text-right pr-5">
           <!--округляем представление стоимости книги-->
@@ -64,6 +64,8 @@
 
   .product_img {
     border-radius: 4px;
+    max-height: 25rem;
+
 
   }
 
