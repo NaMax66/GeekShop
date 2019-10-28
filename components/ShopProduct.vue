@@ -1,4 +1,5 @@
 <template>
+  <!--todo сделать отступ справа для кнопок на мобильном виде-->
   <div class="col-lg-6 product_card">
     <div class="card-body pt-3">
       <h5 class="card-title mb-2">{{ product.title }}</h5>

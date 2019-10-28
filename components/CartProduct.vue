@@ -1,12 +1,12 @@
 <template>
   <transition name="shop-book-fade">
-    <div class="card-body text-left" v-if="show">
+    <div class="card-body" v-if="show">
       <div class="row">
-        <div class="col-4 p-0 ">
-          <img class="cart_img" :src="getImgPath" :alt="product.title"/>
+        <div class="col-4 col-sm-3">
+          <img class="cart_img w-100" :src="getImgPath" :alt="product.title"/>
         </div>
-        <p class="card-title col-4">{{ product.title }}</p>
-        <div class="col-4 text-right">
+        <p class="card-title col-4 col-sm-6">{{ product.title }}</p>
+        <div class="col-4 col-sm-3 text-right">
           <div class="btn-group mr-2 mt-2" role="group" aria-label="Basic example">
             <button @click="changeAmount(-1)" type="button" class="btn btn-secondary"> -</button>
             <span class="btn disabled counter">  {{ product.amount }}  </span>
@@ -62,7 +62,6 @@
   }
 
   .cart_img {
-    max-height: 10rem;
     border-radius: 4px;
   }
 
@@ -72,11 +71,14 @@
 
   @media (max-width: 992px) {
 
+
     .delete_btn {
-      margin-top: 3rem !important;
+      margin-top: 1rem !important;
+      font-size: .75rem;
+
     }
     .counter {
-      width: 3rem;
+      width: 2.5rem;
     }
   }
 
