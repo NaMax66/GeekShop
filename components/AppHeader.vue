@@ -21,7 +21,6 @@
               Книги
             </nuxt-link>
 
-
             <nuxt-link class="nav-link"
                        :class="{'border-light': getCurrentRoute === '/t_shirts', 'text-color': getCurrentRoute === '/t_shirts'}"
                        to="/t_shirts"
@@ -29,14 +28,12 @@
               Футболки
             </nuxt-link>
 
-
             <nuxt-link class="nav-link"
                        :class="{'border-light': getCurrentRoute === '/trinkets', 'text-color': getCurrentRoute === '/trinkets'}"
                        to="/trinkets"
             >
               Всячина
             </nuxt-link>
-
 
             <nuxt-link class="nav-link"
                        :class="{'border-light': getCurrentRoute === '/cart', 'text-color': getCurrentRoute === '/cart'}"
@@ -132,15 +129,11 @@
     }
 
     a {
-      text-decoration: none;
-      color: $link-color !important;
-    }
-
-    a {
       display: inline-block;
-      border: 1px solid $background;
+      border: 1px solid lighten($background, 3%);
       border-radius: 3px;
-      color: #fff;
+      color: $link-color !important;
+      text-decoration: none;
 
 
       &:hover {
@@ -161,5 +154,11 @@
     font-size: 1.5rem;
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  @media (max-width: 992px) {
+    .navbar-nav a {
+      margin-bottom: .5rem;
+    }
   }
 </style>
