@@ -73,7 +73,7 @@
           font-size: 0.875rem;
           font-family: inherit;
           background: none;
-          border: 1px solid black;
+          border: 1px solid $accent_color;
           height: 3rem;
           background: #fff;
           border-radius: 4px;

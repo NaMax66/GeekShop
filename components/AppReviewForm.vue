@@ -322,7 +322,7 @@
             font-size: 0.875rem;
             font-family: inherit;
             background: none;
-            border: 1px solid black;
+            border: 1px solid $accent_color;
             padding: 0;
             width: 100%;
             height: 3rem;

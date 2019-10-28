@@ -136,7 +136,7 @@
       color: $link-color !important;
     }
 
-    li {
+    a {
       display: inline-block;
       border: 1px solid $background;
       border-radius: 3px;
@@ -145,8 +145,9 @@
 
       &:hover {
         cursor: pointer;
-        border: 1px solid white;
-        background-color: red;
+        border: 1px solid $background;
+        background-color: lighten($background, 20%);
+        color: #fff !important;
       }
     }
   }
@@ -158,9 +159,7 @@
     color: $link-color;
     text-decoration: none;
     font-size: 1.5rem;
-    margin-left: 1rem;
-    padding: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-
-
 </style>
