@@ -4,8 +4,6 @@ const bodyParser = require("body-parser");
 const { MongoDB_URL } = require("../config");
 const routes = require('./routes');
 
-console.log('hello');
-
 app.use(bodyParser.urlencoded({ extended: true }));
 
 MongoClient.connect(MongoDB_URL, (err, db) =>{

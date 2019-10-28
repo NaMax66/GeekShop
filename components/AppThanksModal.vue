@@ -19,6 +19,7 @@
 </script>
 
 <style scoped lang="scss">
+  $accent_color: #F56A3F;
 
   .modal-mask {
     margin-top: 3.4rem;
@@ -49,6 +50,7 @@
         margin: 0 auto;
         padding: 2.25rem 1rem;
         background-color: #fff;
+        color: black;
         border-radius: 2px;
         box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
         transition: all .3s ease;
@@ -68,23 +70,23 @@
         button {
           position: absolute;
           bottom: 1rem;
-          $background_color: #C4C4C4;
           font-size: 0.875rem;
           font-family: inherit;
           background: none;
-          border: 0;
+          border: 1px solid black;
           height: 3rem;
-          background: $background_color;
+          background: #fff;
           border-radius: 4px;
           font-style: normal;
           font-weight: bold;
           line-height: 16px;
           width: 90%;
-          color: #FFFFFF;
           margin-left: -45%;
 
           &:hover {
-            background-color: darken($background_color, 10%);
+            background-color: darken($accent_color, 10%);
+            color: #fff;
+            border: 1px solid white;
           }
 
           &:active {

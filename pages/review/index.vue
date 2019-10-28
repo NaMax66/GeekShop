@@ -1,12 +1,12 @@
 <template>
-  <div class="my_container review__container">
-    <h2 class="review__header">Отзывы магазина</h2>
+  <div class="my_container mt-1">
+    <h1 class="review__header">Отзывы магазина</h1>
     <button
         class="new__review__button"
         @click="showForm = true"
     >Написать отзыв
     </button>
-    <!--модальное окно - форма отзва-->
+    <!--модальное окно - форма отзыва-->
     <transition name="modal">
       <keep-alive>
         <AppReviewForm v-if="showForm"
@@ -17,7 +17,6 @@
     </transition>
     <transition name="modal">
       <AppThanksModal v-if="showThanks"
-
                       @closeThanks="showThanks = !showThanks"
       />
     </transition>
@@ -73,23 +72,18 @@
       reviews() {
         return this.$store.getters.getReviews;
       }
+    },
+    async fetch({ store }) {
+      if (store.getters['getReviews'].length === 0) {
+        await store.dispatch('fetch', 'reviews');
+      }
     }
   };
 </script>
 
 <style scoped lang="scss">
 
-  .review__container {
-    margin-top: 3.4rem;
-
-    /*чтобы не схолпывался margin */
-    padding-top: 1px;
-
-    /*выставляю отступы с учетом контейнера приложения. В мобильной версии он составляем 15px*/
-    /*во всех элементах в макете отступ левый 16px.*/
-    margin-left: 1px;
-    margin-right: 1px;
-
+    $accent_color: #F56A3F;
 
     .modal-enter .modal-container,
     .modal-leave-active .modal-container {
@@ -109,13 +103,7 @@
     .review__header {
       margin-top: 2rem;
       margin-bottom: 0;
-
-      font-family: Roboto, sans-serif;
-      font-style: normal;
-      font-weight: bold;
-      font-size: 0.875rem;
-      line-height: 1rem;
-      color: #F56A3F;
+      color: $accent_color;
     }
 
     .new__review__button {
@@ -140,7 +128,8 @@
       }
 
       &:hover {
-        background-color: darken($bg_color, 10%);
+        background-color: $accent_color;
+        color: #fff;
       }
 
       &:active {
@@ -166,11 +155,8 @@
           border-bottom: 1px solid #D9D9D9;
         }
 
-
         .review__nickname {
           display: inline-block;
-
-          font-family: Roboto, sans-serif;
           font-style: normal;
           font-weight: bold;
           font-size: 0.875rem;
@@ -217,7 +203,7 @@
         }
       }
     }
-  }
+
 
 
 </style>

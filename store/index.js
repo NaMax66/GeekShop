@@ -4,32 +4,13 @@ export const state = () => ({
   trinkets:[],
   t_shirts: [],
   productsInCart: [],
-  reviews: [
-    {
-      nickName: "Пётр",
-      pubDate: "24.10.2019",
-      score: 4,
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis debitis molestias nostrum odio reprehenderit."
-    },
-    {
-      nickName: "Анна Павловна",
-      pubDate: "24.09.2019",
-      score: 5,
-      text: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Blanditiis debitis molestias nostrum odio reprehenderit consectetur adipisicing."
-    },
-    {
-      nickName: "SomeFunnyNick",
-      pubDate: "14.09.2019",
-      score: 3,
-      text: "Lorem ipsum dolor sit amet, elit. Blanditiis debitis molestias nostrum odio reprehenderit."
-    }
-  ]
+  reviews: []
 });
+
 
 /**
  * GETTERS
  */
-
 export const getters = {
   getReviews(state) {
     return state.reviews;
@@ -95,10 +76,10 @@ export const getters = {
   }
 };
 
+
 /**
  * MUTATIONS
  */
-
 export const mutations = {
   addReview(state, payload) {
     state.reviews = [payload, ...state.reviews];
@@ -109,7 +90,7 @@ export const mutations = {
     state.language = payload;
   },
 
-  setProducts(state, payload) {
+  setState(state, payload) {
     if (payload.type === 'booksDB') {
       state.books = payload.data;
     }
@@ -118,6 +99,9 @@ export const mutations = {
     }
     if (payload.type === 'trinkets') {
       state.trinkets = payload.data;
+    }
+    if (payload.type === 'reviews') {
+      state.reviews = payload.data;
     }
   },
 
@@ -151,22 +135,23 @@ export const mutations = {
   deleteProductFromCart(state, _id) {
     state.productsInCart = state.productsInCart.filter(el => el._id !== _id);
   },
+
   clearCart(state){
     state.productsInCart = [];
   }
 };
 
+
 /**
  * ACTIONS
  */
-
 export const actions = {
 
   /*in payload we received collection name that we needed*/
   async fetch({ commit }, payload) {
     const products = await this.$axios.$get("/api/" + payload);
 
-    commit("setProducts", { type: payload, data: products } );
+    commit("setState", { type: payload, data: products } );
   },
 
   addReview({ commit }, payload) {

@@ -2,18 +2,18 @@
   <transition name="shop-book-fade">
     <div class="card-body" v-if="show">
       <div class="row">
-        <div class="col-4 col-sm-3">
+        <div class="col-4 col-lg-2">
           <img class="cart_img w-100" :src="getImgPath" :alt="product.title"/>
         </div>
-        <p class="card-title col-4 col-sm-6">{{ product.title }}</p>
-        <div class="col-4 col-sm-3 text-right">
+        <p class="card-title col-3">{{ product.title }}</p>
+        <div class="col-5 text-right">
           <div class="btn-group mr-2 mt-2" role="group" aria-label="Basic example">
-            <button @click="changeAmount(-1)" type="button" class="btn btn-secondary"> -</button>
-            <span class="btn disabled counter">  {{ product.amount }}  </span>
-            <button @click="changeAmount(1)" type="button" class="btn btn-secondary"> +</button>
+            <button @click="changeAmount(-1)" type="button" class="btn btn-warning change_amount_btn"> -</button>
+            <span class="btn disabled">  {{ product.amount }}  </span>
+            <button @click="changeAmount(1)" type="button" class="btn btn-warning change_amount_btn"> +</button>
           </div>
           <button @click="deleteBookFromCart"
-                  class="btn btn-warning mt-2 mr-1 delete_btn">Убрать
+                  class="btn btn-secondary mt-2 mr-1 delete_btn">Убрать
           </button>
         </div>
       </div>
@@ -77,9 +77,12 @@
       font-size: .75rem;
 
     }
-    .counter {
-      width: 2.5rem;
+
+    .change_amount_btn {
+      font-size: .75rem !important;
     }
+
+
   }
 
 </style>

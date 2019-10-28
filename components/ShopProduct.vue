@@ -4,10 +4,10 @@
     <div class="card-body pt-3">
       <h5 class="card-title mb-2">{{ product.title }}</h5>
       <div class="row pt-3">
-        <div class="p-0 col-7 product_img_container">
+        <div class="p-0 col-6 product_img_container">
           <img class="product_img" :src="getImgPath" :alt="product.title"/>
         </div>
-        <div class="col-5 text-right pr-md-5">
+        <div class="col-6 text-right pr-md-5">
           <!--округляем представление стоимости книги-->
           <p class="lead">Цена: <span class="font-weight-bold">{{ product.price | getNicePriceLook  }}</span> руб.
           </p>
@@ -17,7 +17,7 @@
           <p class="lead" v-if="product.size">Размер: <span class="font-weight-bold">{{ product.size }}</span></p>
 
 
-          <b-button @click="addProductToCart" class="btn btn-info mt-4">В корзину</b-button>
+          <b-button @click="addProductToCart" class="btn btn-warning mt-4">В корзину</b-button>
 
           <!--добавляем всплывающее сообщение рядом с кнопкой "В корзину"-->
           <b-toast class="mt-3" :id="'toast' + this.product._id"
@@ -86,7 +86,7 @@
   .product_img {
     border-radius: 4px;
     max-height: 25rem;
-
+    width: 100%;
 
   }
 

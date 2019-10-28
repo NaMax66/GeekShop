@@ -170,8 +170,12 @@
 </script>
 
 <style scoped lang="scss">
+
+  $accent_color: #F56A3F;
+
+
   .red__border {
-    border: 2px solid red !important;
+    border: 1px solid red !important;
   }
 
   .modal-mask {
@@ -309,33 +313,32 @@
               bottom: 1rem;
               right: 1rem;
               font-size: 0.75rem;
-              color: #FF6969;
+              color: $accent_color;
             }
           }
 
           .review__send__btn {
-            $background_color: #C4C4C4;
             /*очистка настроек button по умолчанию*/
             font-size: 0.875rem;
             font-family: inherit;
             background: none;
-            border: 0;
+            border: 1px solid black;
             padding: 0;
             width: 100%;
             height: 3rem;
 
             margin-top: 1rem;
-            background: $background_color;
+            background: white;
             border-radius: 8px;
             font-style: normal;
             font-weight: bold;
             line-height: 16px;
             text-align: center;
 
-            color: #FFFFFF;
-
             &:hover {
-              background-color: darken($background_color, 10%);
+              background-color: darken($accent_color, 10%);
+              border: 1px solid white;
+              color: white;
             }
 
             &:active {

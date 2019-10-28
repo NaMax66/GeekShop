@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-5 mt-5 container">
+  <div class="my_container">
 
     <!--if we have some books in the storage - we show this block-->
     <!--:product_type="product.type" this needs for right img path-->

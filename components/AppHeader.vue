@@ -5,7 +5,7 @@
         <nuxt-link to="/"
                    class="logo"
                    aria-disabled="true"
-                   :class="{'logo-hover': getCurrentRoute !== '/', 'text-white': getCurrentRoute === '/'}"
+                   :class="{'logo-hover': getCurrentRoute !== '/', 'text-color': getCurrentRoute === '/'}"
         >GeekShop</nuxt-link>
       </b-navbar-brand>
 
@@ -15,7 +15,7 @@
         <b-navbar-nav class="ml-auto">
 
             <nuxt-link class="nav-link"
-                       :class="{'border-light': getCurrentRoute === '/books', 'text-white': getCurrentRoute === '/books'}"
+                       :class="{'border-light': getCurrentRoute === '/books', 'text-color': getCurrentRoute === '/books'}"
                        to="/books"
             >
               Книги
@@ -23,7 +23,7 @@
 
 
             <nuxt-link class="nav-link"
-                       :class="{'border-light': getCurrentRoute === '/t_shirts', 'text-white': getCurrentRoute === '/t_shirts'}"
+                       :class="{'border-light': getCurrentRoute === '/t_shirts', 'text-color': getCurrentRoute === '/t_shirts'}"
                        to="/t_shirts"
             >
               Футболки
@@ -31,7 +31,7 @@
 
 
             <nuxt-link class="nav-link"
-                       :class="{'border-light': getCurrentRoute === '/trinkets', 'text-white': getCurrentRoute === '/trinkets'}"
+                       :class="{'border-light': getCurrentRoute === '/trinkets', 'text-color': getCurrentRoute === '/trinkets'}"
                        to="/trinkets"
             >
               Всячина
@@ -39,7 +39,7 @@
 
 
             <nuxt-link class="nav-link"
-                       :class="{'border-light': getCurrentRoute === '/cart', 'text-white': getCurrentRoute === '/cart'}"
+                       :class="{'border-light': getCurrentRoute === '/cart', 'text-color': getCurrentRoute === '/cart'}"
                        to="cart"
             >
               Корзина <span class=" badge badge-light">{{ totalAmountProductsInCart }}</span>
@@ -47,7 +47,7 @@
 
 
             <nuxt-link class="nav-link"
-                       :class="{'border-light': getCurrentRoute === '/review', 'text-white': getCurrentRoute === '/review'}"
+                       :class="{'border-light': getCurrentRoute === '/review', 'text-color': getCurrentRoute === '/review'}"
                        to="review"
             >
               Отзывы
@@ -104,23 +104,31 @@
 <style scoped lang="scss">
 
   $link-color: #E0E0E0;
+  $background: rgba(51, 51, 51, 0.96);
 
   .nav-link {
     margin-right: 1rem;
   }
 
   .navbar {
-    background-color: #333;
+    background-color: $background !important;
     margin-top: 0;
     margin-bottom: 0;
     padding-top: 0;
     padding-bottom: 0;
 
+    ul {
+      min-height: 2.625rem;
+    }
+
     .border-light {
       display: inline-block;
       border: 1px solid white;
       border-radius: 3px;
-      color: #fff !important;
+      width: inherit;
+    }
+    .text-color {
+      color: #F56A3F !important;
     }
 
     a {
@@ -130,7 +138,7 @@
 
     li {
       display: inline-block;
-      border: 1px solid #333;
+      border: 1px solid $background;
       border-radius: 3px;
       color: #fff;
 
@@ -144,113 +152,15 @@
   }
 
   .logo {
+    border: 1px solid $background;
     font-weight: normal;
     display: inline-block;
     color: $link-color;
     text-decoration: none;
     font-size: 1.5rem;
-    margin: 0;
+    margin-left: 1rem;
     padding: 0;
   }
 
-  /*.nav-toolbox-wrapper {
-    background-color: #333;
-    color: $link-color;
-    width: 100%;
-    font-weight: bold;
 
-    @media (min-width: 768px) {
-
-      padding-right: 10%;
-      padding-left: 10%;
-
-    }
-
-    @media (max-width: 768px) {
-      font-size: 75%;
-    }
-
-  }
-
-
-  nav {
-
-    !*Clearfix*!
-    &::after {
-      content: "";
-      clear: both;
-      display: table;
-    }
-  }
-
-  .logo {
-    font-weight: normal;
-    display: inline-block;
-    float: left;
-    color: $link-color;
-    text-decoration: none;
-    font-size: 2rem;
-    padding: .3rem;
-    cursor: default;
-    margin-left: .5rem;
-
-    .logo__short {
-      display: none;
-    }
-
-    @media (max-width: 768px) {
-      font-size: 1.5rem;
-      margin-top: .3rem;
-
-      .logo__short {
-        display: inline-block;
-      }
-
-      .logo__long {
-        display: none;
-      }
-    }
-
-  }
-
-  .logo-hover {
-    cursor: pointer;
-
-    &:hover {
-      color: #FF372F;
-    }
-  }
-
-  .text-white {
-    color: white;
-  }
-
-  .navigation {
-    list-style: none;
-    float: right;
-    margin-bottom: .5rem;
-    margin-top: 1rem;
-    margin-right: 1rem;
-
-    li {
-      display: inline-block;
-      margin-right: 1rem;
-      border: 1px solid #333;
-      padding: .3rem;
-      border-radius: 3px;
-      !*remove padding from the right element*!
-      &:last-child {
-        margin: 0;
-
-      }
-
-      &:hover {
-        cursor: pointer;
-        border: 1px solid white;
-        padding: .3rem;
-        background-color: red;
-      }
-    }
-
-  }*/
 </style>

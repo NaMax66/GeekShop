@@ -37,6 +37,17 @@ module.exports = function(app, client) {
     })
   });
 
+  app.get('/reviews', (req,res) => {
+
+    database.collection('reviews').find({}).toArray((err, data) => {
+      if (err) {
+        res.send({'error': 'An error has occurred'})
+      } else {
+        res.send(data);
+      }
+    })
+  });
+
   app.get('/:id', (req,res) => {
     const id = req.params.id;
     const details = {'_id' : ObjectID(id)};
