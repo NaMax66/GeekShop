@@ -7,10 +7,16 @@
         <div class="p-0 col-7 product_img_container">
           <img class="product_img" :src="getImgPath" :alt="product.title"/>
         </div>
-        <div class="col-5 text-right pr-5">
+        <div class="col-5 text-right pr-md-5">
           <!--округляем представление стоимости книги-->
           <p class="lead">Цена: <span class="font-weight-bold">{{ product.price | getNicePriceLook  }}</span> руб.
           </p>
+          <!--next options shows depends on special product's properties-->
+          <p class="lead" v-if="product.material">Материал: <span class="font-weight-bold">{{ product.material }}</span></p>
+          <p class="lead" v-if="product.color">Цвет: <span class="font-weight-bold">{{ product.color }}</span></p>
+          <p class="lead" v-if="product.size">Размер: <span class="font-weight-bold">{{ product.size }}</span></p>
+
+
           <b-button @click="addProductToCart" class="btn btn-info mt-4">В корзину</b-button>
 
           <!--добавляем всплывающее сообщение рядом с кнопкой "В корзину"-->
@@ -34,7 +40,21 @@
       },
       getImgPath() {
         if (this.product.img) {
-          return require(`~/assets/img/${this.product_type}/${this.product.img}`);
+          let img = '';
+          try {
+            img = require(`~/assets/img/${ this.product_type }/${ this.product.img }`)
+          } catch (e) {
+            try {
+              /*todo send errors to server*/
+              console.log('add a picture for product with id: ' +  this.product._id);
+              img = require(`~/assets/img/tag_faces-24px.svg`)
+            }
+            catch (e) {
+              console.log('Put a picture as a placeholder or add a picture for product with id: ' +  this.product._id);
+            }
+          }
+
+          return img;
         }
       }
     },

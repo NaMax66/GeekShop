@@ -4,7 +4,6 @@ export const state = () => ({
   trinkets:[],
   t_shirts: [],
   productsInCart: [],
-  booksInCart: [],
   reviews: [
     {
       nickName: "Пётр",
