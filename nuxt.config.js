@@ -62,6 +62,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
+    browserBaseURL: 'https://4geeks.na4u.ru'
   },
   /*
   ** Build configuration

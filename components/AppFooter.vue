@@ -1,5 +1,5 @@
 <template>
-  <footer class="lead row mt-5 mb-4 ml-5 mr-5 bg-muted ">
+  <footer class="lead row mt-5 mb-4 ml-2 mr-2 ml-lg-5 mr-lg-5 bg-muted app_footer">
     <div class="col-6 d-flex align-items-end">
       <p class="mb-0">&copy; GeekShop by NaMax66</p>
     </div>
@@ -40,6 +40,12 @@
   }
   .outside_link:hover {
     fill: orangered;
+  }
+
+  @media (max-width: 768px) {
+    .outside_link {
+      padding-left: .3rem;
+    }
   }
 
 </style>

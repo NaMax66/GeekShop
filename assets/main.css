@@ -17,6 +17,12 @@ html {
   box-sizing: border-box;
 }
 
+@media (max-width: 576px) {
+  html {
+    font-size: 75%;
+  }
+}
+
 h1 {
   color: #F56A3F;
 }

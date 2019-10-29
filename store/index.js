@@ -149,7 +149,7 @@ export const actions = {
 
   /*in payload we received collection name that we needed*/
   async fetch({ commit }, payload) {
-    const products = await this.$axios.$get("/api/" + payload);
+      const products = await this.$axios.$get("/api/" + payload);
 
     commit("setState", { type: payload, data: products } );
   },

@@ -1,5 +1,5 @@
 const ObjectID = require('mongodb').ObjectID;
-const { DB_name } = require("../config");
+const { DB_name, PORT } = require("../config");
 
 module.exports = function(app, client) {
   const database = client.db(DB_name);
@@ -50,6 +50,7 @@ module.exports = function(app, client) {
 
   app.get('/:id', (req,res) => {
     const id = req.params.id;
+    if (id.length < 24) return;
     const details = {'_id' : ObjectID(id)};
     database.collection(collection).findOne(details, (err, item) => {
       if (err) {

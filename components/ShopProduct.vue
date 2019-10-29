@@ -86,7 +86,7 @@
   .product_img {
     border-radius: 4px;
     max-height: 25rem;
-    max-width: 15rem;
+    max-width: 100%;
 
   }
 

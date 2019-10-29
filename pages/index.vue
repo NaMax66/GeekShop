@@ -1,9 +1,9 @@
 <template>
   <div class="my_container text-center">
-    <div>
+    <div class="main_page">
       <logo/>
       <h1 class="title">
-        GeekShop - мазазин для увлеченных людей
+        GeekShop - магазин для увлеченных людей
       </h1>
       <h2 class="subtitle">
         Книги, футболки, всячина - для тех, кто ценит своё развитие и любит стильную, приятную на вид одежду.
@@ -76,6 +76,7 @@
     color: $soft_gray;
     text-decoration: none;
     padding: 10px 30px;
+    margin-top: 1rem;
   }
 
   .button--gray:hover {
@@ -85,6 +86,7 @@
   }
 
   .button--orange {
+    margin-top: 1rem;
     display: inline-block;
     border-radius: 4px;
     border: 1px solid $accent_color;
@@ -97,5 +99,16 @@
     color: #fff;
     background-color: $accent_color;
     text-decoration: none;
+  }
+
+  @media (max-width: 768px) {
+    .title {
+      font-size: 3rem;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+    }
+
   }
 </style>
