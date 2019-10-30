@@ -35,10 +35,16 @@ config.js                         | Специфические и конфиде
 >
 >app
 >   -.nuxt
+>
 >   -api
+>
 >   -node_modules
+>
 >   config.js
+>
 >   nuxt.config.js
+>
 >   package-lock.js
+>
 >   package.js
 
