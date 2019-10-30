@@ -13,12 +13,16 @@
     components: {
       AppHeader,
       AppFooter
+    },
+    methods: {
+      newMethod(){
+        console.log('Hello');
+      }
     }
   }
 </script>
 
 <style>
-
 
 *,
 *:before,

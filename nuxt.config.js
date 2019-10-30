@@ -1,4 +1,4 @@
-const {IP, PORT} = require('./config');
+const {IP, PORT, browserBaseURL} = require('./config');
 
 export default {
   mode: 'universal',
@@ -62,7 +62,7 @@ export default {
   ** See https://axios.nuxtjs.org/options
   */
   axios: {
-    browserBaseURL: 'https://4geeks.na4u.ru'
+    browserBaseURL: browserBaseURL
   },
   /*
   ** Build configuration
